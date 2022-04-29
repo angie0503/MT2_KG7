@@ -3,93 +3,18 @@
 #include "Auto.h"
 using namespace std;
 
+inint main() {
+	Auto Seat;
+	Seat.set_tankinhalt(10);
+	x = Seat.get_tankinhalt();
+	cout << x;
 
-//Standardkonstruktor
-Auto::Auto()
-{
-	radzahl = 4;
-	farbe = "rot";
-	ps = 70;
-	anzahl_sitze = 5;
-	spritverbrauch = 6;
-	tankinhalt = 40;
-	tankgroesse = 70;
+	Auto Audi = Auto(4, "schwarz", 200, 5, 5, 40, 60);
+	cout << Audi.get_radzahl(), Audi.get_farbe(), Audi.get_ps(), Audi.get_anzahl_sitze(), Audi.get_spritverbrauch(), Audi.get_tankgroesse, Audi.get_tankinhalt();
 
-
-}
-
-// allgemeiner Kosntruktor
-Auto::Auto(int Radzahl, string Farbe, int PS, int Anzahl_Sitze, float Spritverbrauch, float Tankinhalt, float Tankgroesse)
-{
-radzahl = Radzahl;
-farbe = Farbe;
-ps = PS;
-anzahl_sitze = Anzahl_Sitze;
-spritverbrauch = Spritverbrauch;
-tankinhalt = Tankinhalt;
-tankgroesse = Tankgroesse;
+	Auto VW = VW();
+	cout << VW.fahren(200);
 
 }
 
-// Kopierkonstruktor
-Auto::Auto(const Auto & other)
-{
-radzahl = other.radzahl;
-farbe = other.farbe;
-ps = other.ps;
-anzahl_sitze = other.anzahl_sitze;
-spritverbrauch = other.spritverbrauch;
-tankinhalt = other.tankinhalt;
-tankgroesse = other.tankgroesse;
 
-}
-
-//Destruktor
-Auto::~Auto()
-{
-
-}
-
-//Getter
-int Auto::getradzahl()
-{
-	return radzahl; 
-}
-
-string Auto::getfarbe()
-{
-	return farbe;
-}
-
-int Auto::getps()
-{
-	return ps;
-}
-
-int Auto::getanzahl_sitze()
-{
-	return anzahl_sitze; 
-}
-
-float Auto::getspritverbrauch()
-{
-	return spritverbrauch;
-}
-
-float Auto::gettankgroesse()
-{
-	return tankgroesse;
-}
-
-float Auto::gettankinhalt()
-{
-	return tankinhalt;
-}
-
-//Setter
-
-float Auto::settankinhalt()
-{
-
-	return tankinhalt;
-}
