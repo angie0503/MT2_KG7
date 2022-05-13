@@ -30,7 +30,7 @@ int main(void)
 
 	int eingabe = -1;
 	do {
-		eingabe = menue(my_playlist.get_name();
+		eingabe = menue(my_playlist.get_name());
 		switch (eingabe) {
 		case 1:
 			my_playlist.BenutzerdatenEingeben(Titel, Interpret, Kategorie);

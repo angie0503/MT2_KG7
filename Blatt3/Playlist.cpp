@@ -330,29 +330,30 @@ void playlist::PlaylistLaden()
 
 	while (!Quelle.eof())
 	{
-		struct titel* ptr;
+		struct titel* ptr = start_pointer;
 		getline(Quelle, hilfe);
 		if (hilfe.length() == 0)
 			break;
-		if ((ptr = new titel) == NULL) {
+		if ((ptr = new titel) == NULL)
+		{
 			system("cls");
 			cout << "kein Speicherplatz mehr vorhanden";
 			system("pause");
 			return;
 		}
-		else {
-
+		else
+		{
 			ptr->name = hilfe;
 			getline(Quelle, ptr->interpret);
 			getline(Quelle, hilfe);
 			ptr->kategorie = static_cast<mkat> (atoi(hilfe.c_str()));
-			ptr->next = start_pointer;
-			start_pointer = ptr;
+			ptr->next = ptr++;
+			//start_pointer = ptr;
 		}
 	}
 
 	Quelle.close();
-
+}
 
 //Mathode Abspielen
 int wunsch;
