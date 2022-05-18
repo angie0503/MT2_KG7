@@ -4,6 +4,12 @@
 #include "Transportmittel.h"
 using namespace std;
 
+//allgemeiner Konstruktor
+Transportmittel::Transportmittel(double h, double b);
+{
+	hoehe = h;
+	breite = b;
+}
 
 //Methode
 void bewegen(string richtung)

@@ -30,7 +30,7 @@ private:
 public:
 	//Methoden
 	void fahren(double km);
-	void schieben(double Km);
+	void schieben(double km);
 
 	//allgemeiner Konstruktor der Klasse LandTransportmittel
 	LandTransportmittel(double hoehe, double breite, int radzahl);
