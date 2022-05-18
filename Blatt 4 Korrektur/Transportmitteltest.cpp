@@ -20,6 +20,9 @@ int main()
 	int anzahlg;
 	string f;
 	int anzahlpersonen;
+	double sprit;
+	int liter;
+
 
 	cout << "Hallo! Bitte geben Sie die Hoehe des Transportmittels ein!\n" << endl;
 	cin >> h;
@@ -115,6 +118,23 @@ int main()
 	Rischka Rik3 = Rik3.schieben(km);
 	cout << "Die Methode wurde ueberschrieben.\n" << endl;
 
+	// Test der abgeleiteten LandTransportmittel Klasse Auto
+
+	cout << "Hallo! Bitte geben Sie den Spritverbrauch Ihres Autos an!\n" << endl;
+	cin >> sprit;
+	Auto Audi = Audi(sprit, r, h, b);
+	cout << "Ihr Auto hat einen Spritverbrauch von " << Audi.get_spritverbrauch << "  \n" << endl;
+	cout << "Ihr Auto beitzt " << Audi.get_radzahl << "Raeder.\n" << endl;
+	cout << "Die Hoehe des Autos betraegt " << Audi.get_hoehe << "\n" << endl;
+	cout << "Die Breite des Autos betraegt " << Audi.get_breite << "\n" << endl;
+
+	Auto BMW = BMW.tanken(liter);
+	cout << "Wie viele Liter wollen Sie tanken?\n" << endl;
+	cin >> liter;
+	cout << "Sie wollen " << liter << "tanken.\n" << endl;
+
+	Auto VW = VW.schieben(km);
+	cout << "Diese Methode wurde ueberschrieben.\n" << endl;
 
 	return 0;
 }

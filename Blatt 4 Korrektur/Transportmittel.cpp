@@ -95,14 +95,14 @@ Fahrrad::schieben(double km)
 	cout << "Diese Methode wurde ueberschrieben.\n" << endl;
 }
 
-Rikscha::Rikscha(string f, const int r, const double h, const double b)
+Rischka::Rischka(string f, const int r, const double h, const double b)
 {
 	farbe = f;
 	radzahl = r;
 	hoehe = h;
 	breite = b;
 }
-Rikscha::ziehen(int anzahlpersonen)
+Rischka::ziehen(int anzahlpersonen)
 {
 	if (anzahlpersonen <= 0)
 	{
@@ -113,11 +113,28 @@ Rikscha::ziehen(int anzahlpersonen)
 		return anzahlpersonen;
 	}
 }
-Rikscha::schieben(double km)
+Rischka::schieben(double km)
 {
 	cout << "Diese Methode wurde ueberschrieben.\n" << endl;
 }
-
+Auto::Auto(double sprit, const int r, const double h, const double b)
+{
+	sritverbrauch = sprit;
+	radanzahl = r;
+	hoehe = h;
+	breite = b;
+}
+Auto::tanken(int liter)
+{
+	if (liter <= 0)
+	{
+		return false;
+	}
+	else
+	{
+		return liter;
+	}
+}
 
 
 
