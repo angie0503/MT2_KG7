@@ -9,11 +9,10 @@ private:
 	double hoehe;
 	double breite;
 
-
 public:
 	//Methode
-	string richtung;
-	void bewegen(string richtung);
+	string Richtung;
+	void bewegen(string Richtung);
 
 	//allgemeiner Konstruktor
 	Transportmittel(double hoehe, double breite);
@@ -46,8 +45,8 @@ private:
 	double bruttoregistertonnen();
 public:
 	//Methoden
-	void anlegen(string anlegehafen);
-	void ablegen(string ablegehafen);
+	void anlegen(string Anlegehafen);
+	void ablegen(string Ablegehafen);
 
 	//allgemeiner Kosntruktor der Klasse WasserTransportmittel
 	WasserTransportmittel(double hoehe, double breite, double bruttoregistertonnen);
@@ -100,5 +99,5 @@ public:
 Auto(double spritverbrauch, int radzahl, double hoehe, double breite); //allgemeiner Konstruktor
 
 //getter
-double get_spritverbrauch;
+double get_spritverbrauch();
 };

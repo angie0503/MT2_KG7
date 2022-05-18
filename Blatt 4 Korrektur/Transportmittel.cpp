@@ -5,16 +5,16 @@
 using namespace std;
 
 //allgemeiner Konstruktor
-Transportmittel::Transportmittel(double h, double b);
+Transportmittel::Transportmittel(double h, double b)
 {
 	hoehe = h;
 	breite = b;
 }
 
 //Methode
-void bewegen(string richtung)
+void bewegen(string Richtung)
 {
-	string x = richtung;
+	string x = Richtung;
 	cin >> x;
 
 		if (x == "Norden")
@@ -34,6 +34,18 @@ void bewegen(string richtung)
 			cout << "in Richtung" << x << "bewegen" << endl;
 		}
 }
+LandTransportmittel::LandTransportmittel(int r)
+{
+	radzahl = r;
+}
+
+WasserTransportmittel::WasserTransportmittel(double h, double b, double br)
+{
+	hoehe = h;
+	breite = b;
+	bruttoregistertonnen = br;
+}
+
 
 
 
