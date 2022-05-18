@@ -78,6 +78,24 @@ WasserTransportmittel::ablegen(string Ablegehafen)
 	cout << "Der Ablegehafen lautet" << Ablegehafen << "\n" << endl;
 }
 
+Fahrrad::Fahrrad(int anzahlg, const int r, const double h, const double b)
+{
+	anzahlgaenge = anzahlg;
+	radzahl = r;
+	hoehe = h;
+	breite = b;
+}
+Fahrrad::freihaendigfahren(string name)
+{
+	cin >> name;
+	cout << "Der Name vom Fahrer, welcher freihaendig fahren kann lautet: " << name << "\n" << endl;
+
+}
+Fahrrad ::schieben(double km)
+{ 
+	cout << "Diese Methode wurde überschrieben.\n" << endl;
+}
+
 
 
 

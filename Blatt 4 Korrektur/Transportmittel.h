@@ -6,16 +6,16 @@ using namespace std;
 class Transportmittel //Basis Klasse
 {
 private:
-	double hoehe;
-	double breite;
+	const double hoehe;
+	const double breite;
 
 public:
 	//Methode
 	string Richtung;
-	void bewegen(string Richtung);
+	void bewegen(string Richtung) const;
 
 	//allgemeiner Konstruktor
-	Transportmittel(double hoehe, double breite);
+	Transportmittel(const double hoehe, const double breite);
 
 	//getter
 	double get_hoehe();
@@ -25,14 +25,15 @@ public:
 class LandTransportmittel : public Transportmittel // abgeleitete Klasse LandTransportmittel
 {
 private:
-	int radzahl();
+	const int radzahl();
 public:
 	//Methoden
+	void bewegen(string Richtung) const;
 	void fahren(double km);
 	void schieben(double km);
 
 	//allgemeiner Konstruktor der Klasse LandTransportmittel
-	LandTransportmittel(double hoehe, double breite, int radzahl);
+	LandTransportmittel(const double hoehe, const double breite, int radzahl);
 
 	//getter
 	int get_radzahl();
@@ -45,11 +46,12 @@ private:
 	double bruttoregistertonnen();
 public:
 	//Methoden
+	void bewegen(string Richtung) const;
 	void anlegen(string Anlegehafen);
 	void ablegen(string Ablegehafen);
 
 	//allgemeiner Kosntruktor der Klasse WasserTransportmittel
-	WasserTransportmittel(double hoehe, double breite, double bruttoregistertonnen);
+	WasserTransportmittel(const double hoehe, const double breite, double bruttoregistertonnen);
 
 	//getter
 	double get_bruttoregistertonne();
@@ -63,9 +65,9 @@ int anzahlgaenge;
 
 public:
 void freihaendigfahren(string name);
-void schieben() { cout << "Diese Methode wurde überschrieben"; }
+void schieben(double km);
 
-Fahrrad(int anzahlgeange, int radzahl, double hoehe, double breite); //allgemeiner Konstruktor
+Fahrrad(int anzahlgeange, const int radzahl, const double hoehe, const double breite); //allgemeiner Konstruktor
 
 //getter
 
@@ -82,7 +84,7 @@ private:
 public:
 	void ziehen(int anzahlpersonen);
 
-Rischka(string farbe, int radzahl, double hoehe, double breite); //allgemeiner Kosntruktor 
+Rischka(string farbe, const int radzahl, const double hoehe, const double breite); //allgemeiner Kosntruktor 
 
 //getter
 int get_farbe();
@@ -96,7 +98,7 @@ private:
 public:
 	void tanken(int liter);
 
-Auto(double spritverbrauch, int radzahl, double hoehe, double breite); //allgemeiner Konstruktor
+Auto(double spritverbrauch, const int radzahl, const double hoehe, const double breite); //allgemeiner Konstruktor
 
 //getter
 double get_spritverbrauch();
