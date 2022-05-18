@@ -89,11 +89,33 @@ Fahrrad::freihaendigfahren(string name)
 {
 	cin >> name;
 	cout << "Der Name vom Fahrer, welcher freihaendig fahren kann lautet: " << name << "\n" << endl;
-
 }
-Fahrrad ::schieben(double km)
+Fahrrad::schieben(double km)
 { 
-	cout << "Diese Methode wurde überschrieben.\n" << endl;
+	cout << "Diese Methode wurde ueberschrieben.\n" << endl;
+}
+
+Rikscha::Rikscha(string f, const int r, const double h, const double b)
+{
+	farbe = f;
+	radzahl = r;
+	hoehe = h;
+	breite = b;
+}
+Rikscha::ziehen(int anzahlpersonen)
+{
+	if (anzahlpersonen <= 0)
+	{
+		return false;
+	}
+	else
+	{
+		return anzahlpersonen;
+	}
+}
+Rikscha::schieben(double km)
+{
+	cout << "Diese Methode wurde ueberschrieben.\n" << endl;
 }
 
 

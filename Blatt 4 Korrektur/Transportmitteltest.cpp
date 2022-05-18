@@ -18,6 +18,8 @@ int main()
 	string Ablegehafen;
 	string name;
 	int anzahlg;
+	string f;
+	int anzahlpersonen;
 
 	cout << "Hallo! Bitte geben Sie die Hoehe des Transportmittels ein!\n" << endl;
 	cin >> h;
@@ -94,6 +96,25 @@ int main()
 	cout << "Geben Sie die Strecke ein, die gefahren werden soll!" << endl;
 	cin >> km;
 	cout << "Die Methode wurde überschrieben.\n" << endl;
+
+	// Test der abgeleiteten LandTransportmittel Klasse Rischka
+
+	cout << "Hallo! Bitte geben Sie die Farbe der Rischka ein!\n" << endl;
+	cin >> f;
+	Rischka Rik = Rik(f, r, h, b);
+	cout << "Ihre Rischka besitzt die Farbe " << Rik.get_farbe << "  \n" << endl;
+	cout << "Ihre Rischka beitzt " << Rik.get_radzahl << "Raeder.\n" << endl;
+	cout << "Die Hoehe der Rischka betraegt " << Rik.get_hoehe << "\n" << endl;
+	cout << "Die Breite der Rischka betraegt " << Rik.get_breite << "\n" << endl;
+
+	Rischka Rik2 = Rik2.ziehen(anzahlpersonen);
+	cout << "Geben Sie die Anzahl der verfügbaren Personen ein!\n" << endl;
+	cin >> anzahlpersonen;
+	cout << anzahlpersonen << " Personen ziehen die Rischka.\n" << endl;
+
+	Rischka Rik3 = Rik3.schieben(km);
+	cout << "Die Methode wurde ueberschrieben.\n" << endl;
+
 
 	return 0;
 }
