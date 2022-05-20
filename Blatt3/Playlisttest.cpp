@@ -74,11 +74,16 @@ int main(void)
 			break;
 		case 5:
 			// Playlist abspielen
-			cout << endl;
-			cout << myplaylist.get_name() << "wird gerade abgespielt" << endl;
-			cout << "Titel wird abgespielt" << '\a';'\n' << endl;
-			Sleep(2000);
-			break;
+			my_playlist.ZeileEingeben("M\x94 \bchten Sie die gesamte Playlist abspielen? (j/n) ", temp);
+			if (temp == "n") 
+			{
+				my_playlist.ZeileEingeben("Bitte Titel eingeben ", Titel);
+				my_playlist.Abspielen(false, Titel, 20);
+			}
+			if (temp == "j") {
+				my_playlist.Abspielen(true, "", 2);
+				system(break");
+			}
 		case 6:
 			// Playlist speichern */
 			my_playlist.ZeileEingeben("Bitte den Namen der Playlist eingeben:", temp);
@@ -93,8 +98,6 @@ int main(void)
 			my_playlist.PlaylistLaden();
 			break;
 		case 8:
-			// Playlist abspielen
-			my_playlist.Abspielen();
 			break;
 		case 9:
 			break;

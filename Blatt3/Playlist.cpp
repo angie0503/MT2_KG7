@@ -27,7 +27,7 @@ void playlist::BenutzerdatenEingeben(string& titel, string& interpret, mkat& kat
 		system("cls");
 		cout << "\nGeben Sie den Namen des Titels ein: ";
 		// Eingabepuffer leeren
-		cin.seekg(0, std::ios::end);
+		cin.seekg (0, std::ios::end);
 		cin.clear();
 		getline(cin, titel);
 		cout << "\nName des/der Interpreten: ";
@@ -327,10 +327,11 @@ void playlist::PlaylistLaden()
 
 	// aktuelle Daten loeschen
 	AlleTitelLoeschen();
+	struct titel* last{ NULL };
 
 	while (!Quelle.eof())
 	{
-		struct titel* ptr = start_pointer;
+		struct titel* ptr;
 		getline(Quelle, hilfe);
 		if (hilfe.length() == 0)
 			break;
@@ -347,8 +348,19 @@ void playlist::PlaylistLaden()
 			getline(Quelle, ptr->interpret);
 			getline(Quelle, hilfe);
 			ptr->kategorie = static_cast<mkat> (atoi(hilfe.c_str()));
-			ptr->next = ptr++;
-			//start_pointer = ptr;
+			ptr->next = NULL;
+			if (start_pointer == NULL)
+			{
+				start_pointer = ptr;
+				last = ptr;
+			}
+			else 
+			{
+				last->next = ptr;
+				last = ptr;
+			}
+			ptr->next = ptr;
+			start_pointer = ptr;
 		}
 	}
 
@@ -356,30 +368,37 @@ void playlist::PlaylistLaden()
 }
 
 //Mathode Abspielen
-int wunsch;
-string name;
-string i;
-mkat k;
-cout << endl;
-
-//Titel vom eingegebenen Namen suchen und anzeigen lassen
-
+void playlist::Abspielen(bool playAll, string titel, int name){
 struct titel* ptr = start_pointer;
-cout << endl;
-cout << "Bitte gib den Titel ein, den du h\x94ren m\x94chtest" << endl;
-cin >> Name;
-while (ptr != NULL && (ptr->name != Name));
-ptr = ptr->next;
 if (ptr == NULL) 
 {
 	cout << "Der eingegebene Titel ist nicht vorhanden" << endl;
 	system("break");
+	return;
+}
+if (playAll == true)
+{
+	cout << ptr->name << ", " << ptr->interpret << ", " << enumkat_in_string(ptr->kategorie) << endl;
 }
 else
 {
-	i = ptr->interpret;
-	k = ptr->kategorie;
-	cout << Name << "von" << i << "wird abgespielt.\n" << '\a';
+	while (ptr != NULL && (ptr->name != titel))
+	{
+		ptr = ptr->next;
+	}
+	if (ptr == NULL)
+	{
+		cout << "Der Titel ist nicht in der Playlist enthalten.\n" << endl;
+		system("break");
+		return;
+	}
+	else
+	{
+		cout << ptr->name << "," << ptr->interpret << "," << enumkat_in_string(ptr->kategorie) << endl;
+		clcok_t dauer = time * clock();
+		while (dauer > clock()) {};
+
+	}
 }
-system("Pause");
+
 }
