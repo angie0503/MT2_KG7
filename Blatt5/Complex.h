@@ -9,41 +9,60 @@ class Complex
 {
 private:
 
-	double real; //Realteil
-	double imag; // Imaginärteil
+	double m_real; //Realteil
+	double m_imag; // Imaginärteil
 
 public:
 	//allgemeiner Konstruktor
 	Complex(double re, double im)
 	{
-		real = re;
-		imag = im;
+		m_real = re;
+		m_imag = im;
 	}
 
 	//Getter
-	double get_re() { return real; };
-	double get_im() { return imag; };
+	double get_re() { return m_real; };
+	double get_im() { return m:imag; };
 
 	//Setter
-	double set_re(double re) { real = real; };
-	double set_im(double im) { imag = imag; };
+	double set_re(double re) { m_real = m_real; };
+	double set_im(double im) { m_imag = m_imag; };
+
+	Complex operator- (const Complex& c)
+	{
+		retrun Complex(-c.m_real, -c.m_imag);
+	}
 
 	//Operatorfunktion Addition
-	Complex operator+ (Complex b)
+	Complex operator+ (const Complex& b)
 	{
 			complex z;
-			z.real = real + b.real;
-			z.imag = imag + b.imag;
+			z.m_real = m_real + b.m_real;
+			z.m_imag = m_imag + b.m_imag;
 
 			return z;
 	}
 
+	//Überladung Input
+	istream& operator >> (istream& is, Complex& c)
+	{
+		is >> c.m_real >> c.m_imag;
+		return is;
+	}
+	//Überladung output
+	ostream operator << (ostream& os, const Complex& c)
+	{
+		os << c.m_real << c.m_imag;
+		return os;
+	}
+
+
 	// Operatorfunktion Subtraktion
-	Complex operator- (Complex b)
+	Complex operator- (const Complex b)
 	{
 		complex z;
-		z.real = real - b.real;
-		z.imag = imag - b.imag;
+		z.m_real = m_real - b.m_real;
+		z.m_imag = m_imag - b.imag;
 
 		return z;
 	}
