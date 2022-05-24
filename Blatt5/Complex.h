@@ -14,19 +14,37 @@ private:
 
 public:
 	//allgemeiner Konstruktor
-	Complex(double re, double im);
+	Complex(double re, double im)
+	{
+		real = re;
+		imag = im;
+	}
 
 	//Getter
-	double get_re() { return re; };
-	double get_im() { return im; };
+	double get_re() { return real; };
+	double get_im() { return imag; };
 
 	//Setter
-	double set_re(double re) { real = re; };
-	double set_im(double im) { imag = im; };
+	double set_re(double re) { real = real; };
+	double set_im(double im) { imag = imag; };
 
 	//Operatorfunktion Addition
-	Complex operator+ (Complex b);
+	Complex operator+ (Complex b)
+	{
+			complex z;
+			z.real = real + b.real;
+			z.imag = imag + b.imag;
+
+			return z;
+	}
 
 	// Operatorfunktion Subtraktion
-	Complex operator- (Complex b);
-};
+	Complex operator- (Complex b)
+	{
+		complex z;
+		z.real = real - b.real;
+		z.imag = imag - b.imag;
+
+		return z;
+	}
+}
