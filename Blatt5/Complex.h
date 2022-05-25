@@ -22,18 +22,24 @@ public:
 
 	//Getter
 	double get_re() { return m_real; };
-	double get_im() { return m:imag; };
+	double get_im() { return m_imag; };
 
 	//Setter
 	double set_re(double re) { m_real = m_real; };
 	double set_im(double im) { m_imag = m_imag; };
 
-	Complex operator+ (const Complex& a)
+	Complex z1 ( double m_real , double m_imag)
 	{
 		Complex z1;
-		z1.m_real = m_real + a.m_real;
-		z1.m_imag = m_imag + a.m_imag;
-		retrun z1 ;
+		z1 = m_real + m_imag;
+		return z1 ;
+	}
+
+	Complex z2(double m_real, double m_imag)
+	{
+		Complex z2;
+		z2 = m_real + m_imag;
+		return z2;
 	}
 
 	//Operatorfunktion Addition
