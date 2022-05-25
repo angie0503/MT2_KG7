@@ -28,19 +28,22 @@ public:
 	double set_re(double re) { m_real = m_real; };
 	double set_im(double im) { m_imag = m_imag; };
 
-	Complex operator- (const Complex& c)
+	Complex operator+ (const Complex& a)
 	{
-		retrun Complex(-c.m_real, -c.m_imag);
+		Complex z1;
+		z1.m_real = m_real + a.m_real;
+		z1.m_imag = m_imag + a.m_imag;
+		retrun z1 ;
 	}
 
 	//Operatorfunktion Addition
-	Complex operator+ (const Complex& b)
+	Complex operator+ (const Complex& z1)
 	{
-			complex z;
-			z.m_real = m_real + b.m_real;
-			z.m_imag = m_imag + b.m_imag;
+			Complex z2;
+			z2.m_real = m_real + z1.m_real;
+			z2.m_imag = m_imag + z1.m_imag;
 
-			return z;
+			return z2;
 	}
 
 	//Überladung Input
@@ -58,12 +61,24 @@ public:
 
 
 	// Operatorfunktion Subtraktion
-	Complex operator- (const Complex b)
+	Complex operator- (const Complex z1)
 	{
-		complex z;
-		z.m_real = m_real - b.m_real;
-		z.m_imag = m_imag - b.imag;
+		Complex z2;
+		z2.m_real = m_real - z1.m_real;
+		z2.m_imag = m_imag - z1.imag;
 
-		return z;
+		return z2;
 	}
+
+	//Operatorfunktion Division
+	Complex operator/ (const Complex& c1, const Complex& c2)
+	{
+		double m_real =
+			(c2.m_real * c1.m_real + c2.m_imag * c1.m_imag) / (c2.m_imag * c2.m_imag + c1.m_imag * c1.m_imag);
+		double m_imag =
+			(c2.m_real * c1.m_real - c2.m_imag * c1.m_imag) / c2.m_imag * cw2.m_imag + c1.m_imag * c1.m_imag);
+
+			return Complex(re, im);
+	}
+
 }
